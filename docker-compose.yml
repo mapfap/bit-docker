@@ -1,0 +1,18 @@
+version: "2"
+services:
+  transmission:
+    image: linuxserver/transmission
+    container_name: transmission
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Asia/Bangkok
+    volumes:
+      - /Users/mapfap/dev/bit/data:/config
+      - /Users/mapfap/dev/bit/downloads:/downloads
+      - /Users/mapfap/dev/bit/watch:/watch
+    ports:
+      - 9091:9091
+      - 51413:51413
+      - 51413:51413/udp
+    restart: unless-stopped
